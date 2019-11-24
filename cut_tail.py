@@ -1,7 +1,10 @@
 import argparse
 import json
 
+import numpy as np
 import matplotlib.pyplot as plt
+
+from pathlib import Path
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -19,8 +22,18 @@ if __name__ == "__main__":
             arrays[i].append(dd)
 
     colors = ["red", "green", "blue", "orange", "yellow", "purple", "black"]
-    plt.figure(figsize=(20, 15))
-    for i, arr in enumerate(arrays):
+    plt.figure(figsize=(10, 5))
+    cuts = []
+    for i in range(7):
+        cuts.append(arrays[i][-6:])
+    ti = times[-6:]
+    for i, arr in enumerate(cuts):
         plt.subplot(7, 1, i + 1)
-        plt.plot(times, arr, linewidth=2, color=colors[i])
-    plt.savefig(f"{args.name}.png")
+        plt.plot(ti, arr, linewidth=2, color=colors[i])
+    plt.savefig(f"{args.name}_cut.png")
+
+    save_dir = Path(f"{args.name}")
+    save_dir.mkdir(parents=True, exist_ok=True)
+    names = ["ax", "ay", "az", "tmp", "gx", "gy", "gz"]
+    for arr, name in zip(cuts, names):
+        np.save(save_dir / f"{name}.npy", np.array(arr))

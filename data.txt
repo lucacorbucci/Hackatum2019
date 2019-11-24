@@ -1,3 +1,4 @@
+
  14144 | AcY = 8428 | AcZ = 396 | Tmp = 27.59 | GyX = -255 | GyY = -9 | GyZ = 52
 AcX = 14056 | AcY = 8664 | AcZ = 252 | Tmp = 27.68 | GyX = -266 | GyY = -122 | GyZ = -230
 AcX = 14092 | AcY = 8752 | AcZ = 240 | Tmp = 27.68 | GyX = -246 | GyY = -79 | GyZ = -16
@@ -10,4 +11,3 @@ AcX = 14092 | AcY = 8752 | AcZ = 240 | Tmp = 27.68 | GyX = -246 | GyY = -79 | Gy
 // - gyro x
 // - gyro y
 // - gyro z
-

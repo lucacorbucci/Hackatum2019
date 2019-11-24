@@ -1,3 +1,4 @@
+import argparse
 import json
 import time
 import re
@@ -16,13 +17,21 @@ def split_text(s) -> List[int]:
             [2, 6, 10, 14, 18, 22, 26]))
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--name", required=True)
+args = parser.parse_args()
+
 arduino.readline()
 t0 = time.time()
 times = []
 raw_datas = []
 elapsed = time.time() - t0
-while elapsed <= 50:
-    lst = split_text(arduino.readline())
+while elapsed <= 10:
+    try:
+        lst = split_text(arduino.readline())
+    except IndexError or ValueError:
+        print("some data is ill formed")
+        continue
     times.append(time.time())
     raw_datas.append(lst)
     elapsed = time.time() - t0
@@ -35,5 +44,5 @@ for ti, raw in zip(times, raw_datas):
     dct["raw_data"] = raw
     js.append(dct)
 
-with open("sample.json", "w") as f:
+with open(f"{args.name}.json", "w") as f:
     json.dump(js, f)
