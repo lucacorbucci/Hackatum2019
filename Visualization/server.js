@@ -1,4 +1,6 @@
 const fs = require('fs');
+var jsonlint = require("jsonlint");
+
 const server = require('http').createServer(function (req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');

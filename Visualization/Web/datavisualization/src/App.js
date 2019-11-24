@@ -12,7 +12,7 @@ function App() {
         enabled: true,
         easing: 'linear',
         dynamicAnimation: {
-          speed: 4000
+          speed: 2000
         }
       },
       toolbar: {
@@ -74,32 +74,42 @@ function App() {
 
   useEffect(() => {
     try {
-      setInterval(() => {
 
-        fetch('http://localhost:8000', options)
-          .then(function (response) {
-            return _parseJSON(response)
-          }).then(function (data) {
-            if (data !== {}) {
-              var array = []
+      fetch('http://localhost:8000', options)
+        .then(function (response) {
+          console.log("fetch")
+          return _parseJSON(response)
+        }).then(function (data) {
+          if (data !== {} && data !== undefined) {
+            var array = []
+            try {
               for (var i = 0; i < data['raw_data'].length; i++) {
                 array.push({ x: data['raw_data'][i][0], y: data['raw_data'][i][1] })
               }
               var n = array.length
-              if (100 > n)
-                setAccelerationX([{ data: array.slice(0, n) }]);
-              else
-                setAccelerationX([{ data: array.slice(n - 100, n) }]);
+              setTimeout(function () { //Start the timer
+                if (100 > n)
+                  setAccelerationX([{ data: array.slice(0, n) }]);
+                else
+                  setAccelerationX([{ data: array.slice(n - 100, n) }]);
+              }, 1000)
+
 
               if (accelerationX[0]['data'] !== undefined)
                 console.log(accelerationX[0]['data'].length)
+            } catch (e) {
+              setAccelerationX([{ data: accelerationX }])
             }
 
-          });
+          }
+          else {
+            setAccelerationX([{ data: accelerationX }])
+          }
+        });
 
-      }, 4000);
     } catch (e) {
-      console.log(e);
+      setAccelerationX([{ data: accelerationX }])
+
     }
   })
 
