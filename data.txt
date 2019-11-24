@@ -1,3 +1,13 @@
-AcX = 4588 | AcY = 1680 | AcZ = -14208 | Tmp = 25.24 | GyX = -161 | GyY = -196 | GyZ = 160
-AcX = 4644 | AcY = 1672 | AcZ = -14224 | Tmp = 25.14 | GyX = -319 | GyY = -32 | GyZ = 32
-AcX = 4712 | AcY = 2400 | AcZ = -14360 | Tmp = 25.09 | GyX = -1062 | GyY = 59 | GyZ = 135
+
+ 14144 | AcY = 8428 | AcZ = 396 | Tmp = 27.59 | GyX = -255 | GyY = -9 | GyZ = 52
+AcX = 14056 | AcY = 8664 | AcZ = 252 | Tmp = 27.68 | GyX = -266 | GyY = -122 | GyZ = -230
+AcX = 14092 | AcY = 8752 | AcZ = 240 | Tmp = 27.68 | GyX = -246 | GyY = -79 | GyZ = -16
+
+
+// - accelartion X
+// - acceleration y
+// - acceleration z
+// - temperature
+// - gyro x
+// - gyro y
+// - gyro z
