@@ -19,4 +19,4 @@ We build up the sensors, collect data from it, and make up an algorithm to detec
 
 ## Pitch
 
-The slides from our presentation are available here
+The slides from our presentation are available [here](https://github.com/lucacorbucci/Hackatum2019/blob/master/Pitch/X-Tune.pdf)
